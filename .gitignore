@@ -1,0 +1,16 @@
+# Arquivos e pastas geradas automaticamente
+/dist/
+/build/
+/Prospector.spec
+/Prospector.exe
+/Prospector.log
+/Prospector.bat
+/Prospector_Avancado.bat
+/Prospector_Avancado.log
+/Prospector_Avancado.bat
+/Prospector_Avancado.log
+/Prospector_Avancado.bat
+/Prospector_Avancado.log
+/Prospector_Avancado.bat
+prospector_env
+__pycache__
