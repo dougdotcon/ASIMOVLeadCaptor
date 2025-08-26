@@ -1,10 +1,10 @@
-# 🔥 PROSPECTOR CYBERPUNK TERMINAL 🔥
+# 🔥 ASIMOV LEADCAPTOR CYBERPUNK SYSTEM 🔥
 
 ## 🎯 Visão Geral
 
-Interface terminal cyberpunk ASCII para o sistema Prospector de captura de leads. Esta interface substitui completamente a GUI tradicional por uma experiência terminal futurística e estilizada.
+Sistema completo de captura de leads e disparador de mensagens WhatsApp com interface cyberpunk. Combina web scraping do Google Maps com automação de mensagens via Baileys, tudo integrado em uma interface terminal futurística.
 
-## ✨ Características
+## ✨ Características Principais
 
 ### 🎨 Interface Cyberpunk
 - **Banner ASCII animado** com arte cyberpunk
@@ -13,27 +13,71 @@ Interface terminal cyberpunk ASCII para o sistema Prospector de captura de leads
 - **Menus estilizados** com bordas ASCII
 - **Feedback visual** para todas as operações
 
-### 🚀 Funcionalidades
+### 🚀 Funcionalidades Completas
 - **Captura de leads** do Google Maps
-- **Seleção de estados** brasileiros
-- **Configuração de parâmetros** (bairro, palavra-chave, quantidade)
-- **Status do sistema** em tempo real
+- **🔥 Sistema WhatsApp** com Baileys integrado
+- **📱 Login via QR Code** - conecta com sua conta
+- **🤖 Mensagens únicas** - IA gera variações automaticamente
+- **Seleção de estados** brasileiros e americanos
 - **Navegação contínua** com 4 fases de busca
 - **Export automático** para Excel/CSV
+- **Fluxo integrado** - captura ➜ mensagens automático
 
-## 🛠️ Instalação
+### 🆕 Novo Sistema de Mensagens WhatsApp
+- **Baileys API** - conexão direta com WhatsApp
+- **OpenRouter AI** - variações únicas de mensagens
+- **Templates inteligentes** - nunca envia mensagem igual
+- **Controle de delay** - evita bloqueios
+- **Suporte Excel/CSV** - carrega listas de contatos
+- **Teste integrado** - valida antes de enviar em lote
 
-### 1. Método Automático (Recomendado)
+## 🛠️ Instalação e Configuração
+
+### 🚀 Instalação Completa (Recomendada)
 ```bash
+# 1. Sistema completo com WhatsApp
+python start_whatsapp_system.py
+```
+Este script irá:
+- ✅ Verificar Node.js (instale se necessário)
+- ✅ Instalar dependências Python e Node.js
+- ✅ Configurar arquivo .env
+- ✅ Configurar API OpenRouter
+- ✅ Executar testes do sistema
+- ✅ Iniciar interface cyberpunk
+
+### 📱 Apenas Sistema Cyberpunk
+```bash
+# 2. Apenas captura de leads
 python start_cyberpunk.py
 ```
-O script irá verificar e instalar automaticamente todas as dependências necessárias.
 
-### 2. Método Manual
+### ⚙️ Instalação Manual
 ```bash
+# Python dependencies
 pip install colorama pyfiglet selenium pandas webdriver-manager openpyxl
-python cyberpunk_terminal.py
+
+# Node.js dependencies (para WhatsApp)
+cd whatsapp_sender
+npm install
 ```
+
+## 🔑 Configuração Inicial
+
+### 1. API OpenRouter (para mensagens únicas)
+1. Acesse [OpenRouter.ai](https://openrouter.ai) 
+2. Crie conta gratuita
+3. Obtenha API key
+4. Configure no arquivo `whatsapp_sender/.env`
+
+### 2. WhatsApp Login
+1. Execute o sistema
+2. Escolha `[1] INICIAR WHATSAPP & QR CODE LOGIN`
+3. Escaneie QR Code com seu WhatsApp
+4. Aguarde confirmação de conexão
+
+### 3. Pronto para usar!
+Agora pode capturar leads e enviar mensagens automaticamente.
 
 ## 🎮 Como Usar
 
@@ -43,34 +87,87 @@ Execute o launcher:
 python start_cyberpunk.py
 ```
 
-### 2. Menu Principal
+### 2. Novo Menu Principal Integrado
 ```
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║                           MENU PRINCIPAL                                 ║
 ╠═══════════════════════════════════════════════════════════════════════════╣
-║ [1] ► INICIAR CAPTURA DE LEADS                                           ║
-║ [2] ► CONFIGURAÇÕES AVANÇADAS                                            ║
-║ [3] ► STATUS DO SISTEMA                                                  ║
-║ [4] ► HISTÓRICO DE OPERAÇÕES                                             ║
+║ [1] ► INICIAR WHATSAPP & QR CODE LOGIN                                   ║
+║ [2] ► CAPTURAR LEADS DO GOOGLE MAPS                                      ║
+║ [3] ► DISPARAR MENSAGENS WHATSAPP                                        ║
+║ [4] ► STATUS DO SISTEMA                                                  ║
+║ [5] ► CONFIGURAÇÕES AVANÇADAS                                            ║
 ║ [0] ► DESCONECTAR DO SISTEMA                                             ║
 ╚═══════════════════════════════════════════════════════════════════════════╝
 ```
 
-### 3. Captura de Leads
-1. Selecione **[1] INICIAR CAPTURA DE LEADS**
-2. Escolha o **estado** da lista
-3. Digite o **bairro/cidade**
-4. Digite a **palavra-chave** (ex: restaurante, dentista)
-5. Digite a **quantidade** de leads desejada
-6. Confirme a operação
+### 3. 🔄 Fluxo Completo Integrado
 
-### 4. Exemplo de Uso
+#### Passo 1: Conectar WhatsApp
+1. Escolha **[1] INICIAR WHATSAPP & QR CODE LOGIN**
+2. Escaneie QR Code com WhatsApp
+3. Aguarde confirmação de conexão
+
+#### Passo 2: Capturar Leads
+1. Escolha **[2] CAPTURAR LEADS DO GOOGLE MAPS**
+2. Selecione **país** (Brasil/Estados Unidos)
+3. Escolha o **estado** da lista
+4. Digite o **bairro/cidade**
+5. Digite a **palavra-chave** (ex: restaurante, dentista)
+6. Digite a **quantidade** de leads desejada
+7. Confirme a operação
+8. **NOVO**: Pergunta se deseja abrir sistema de mensagens
+
+#### Passo 3: Disparar Mensagens (Automático)
+1. Escolha **[3] DISPARAR MENSAGENS WHATSAPP** ou aceite após captura
+2. Sistema detecta último arquivo automaticamente
+3. Configure template de mensagem
+4. Defina delay entre envios (recomendado: 5-10s)
+5. Inicie o disparo!
+
+### 4. 🎯 Exemplo Completo de Uso
 ```
-Estado: São Paulo
-Bairro/Cidade: Vila Madalena
-Palavra-chave: restaurante
-Quantidade: 100
+1. Conectar WhatsApp → QR Code → ✅ Conectado
+2. Capturar leads:
+   - País: Brasil
+   - Estado: São Paulo  
+   - Bairro: Vila Madalena
+   - Palavra-chave: restaurante
+   - Quantidade: 100
+   - ✅ 100 leads capturados
+
+3. Disparar mensagens:
+   - Template: "Olá {name}! Vi vocês no Google Maps..."
+   - Delay: 7 segundos
+   - ✅ Mensagens enviadas com variações únicas!
 ```
+
+## 🤖 Mensagens Inteligentes com IA
+
+### Como Funciona a Variação Automática
+
+**Seu template:**
+```
+Olá, poderia falar com {name}? Encontrei o contato no Google Maps e gostaria de agendar uma conversa.
+```
+
+**Variações geradas automaticamente:**
+1. "Oi! Estou tentando entrar em contato com o {name}. Vi vocês no Google e queria conversar sobre algo interessante."
+2. "Bom dia! Consegui o contato de vocês pelo Maps e gostaria de apresentar uma proposta. Podemos bater um papo?"
+3. "Olá {name}! Vi o perfil de vocês online e tenho algo que pode interessar. Quando poderíamos conversar?"
+
+### 🎯 Vantagens das Mensagens Únicas
+- **Nunca repete** - cada mensagem é única
+- **Mantém o propósito** - objetivo sempre claro
+- **Natural e humana** - não parece robô
+- **Evita bloqueios** - WhatsApp não detecta spam
+- **Personalizada** - sempre usa o nome do contato
+
+### ⚙️ Configurações Inteligentes
+- **Temperatura**: 0.8 (criatividade balanceada)
+- **Modelo**: DeepSeek R1 (gratuito)
+- **Tokens**: 150 máximo por mensagem
+- **Delay**: 5-10 segundos entre envios
 
 ## 🎨 Elementos Visuais
 

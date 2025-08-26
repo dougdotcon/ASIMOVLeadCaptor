@@ -1,4 +1,7 @@
 # Arquivos e pastas geradas automaticamente
+whatsapp_sender/node_modules
+.claude
+/backup_ProspectoWEB
 /dist/
 /build/
 /Prospector.spec
