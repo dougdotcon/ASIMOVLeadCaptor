@@ -1,6 +1,6 @@
 <div align="center">
 
-![ASIMOV LeadCaptor](logo.png)
+<img src="logo.png" alt="ASIMOV LeadCaptor" width="200">
 
 # 🔥 ASIMOV LeadCaptor
 ### Sistema Completo de Automação de Leads com IA
