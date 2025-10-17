@@ -1,289 +1,683 @@
-# 🔥 ASIMOV LEADCAPTOR CYBERPUNK SYSTEM 🔥
+<div align="center">
 
-## 🎯 Visão Geral
+![ASIMOV LeadCaptor](logo.png)
 
-Sistema completo de captura de leads e disparador de mensagens WhatsApp com interface cyberpunk. Combina web scraping do Google Maps com automação de mensagens via Baileys, tudo integrado em uma interface terminal futurística.
+# 🔥 ASIMOV LeadCaptor
+### Sistema Completo de Automação de Leads com IA
 
-## ✨ Características Principais
+[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://python.org)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Bot-25D366.svg)](https://whatsapp.com)
+[![AI](https://img.shields.io/badge/AI-Powered-purple.svg)](https://openrouter.ai)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-### 🎨 Interface Cyberpunk
-- **Banner ASCII animado** com arte cyberpunk
-- **Cores neon** (ciano, verde, amarelo, magenta)
-- **Animações de carregamento** com caracteres especiais
-- **Menus estilizados** com bordas ASCII
-- **Feedback visual** para todas as operações
+**🎯 Capture leads do Google Maps • 📱 Envie via WhatsApp • 🤖 Automatize com IA**
 
-### 🚀 Funcionalidades Completas
-- **Captura de leads** do Google Maps
-- **🔥 Sistema WhatsApp** com Baileys integrado
-- **📱 Login via QR Code** - conecta com sua conta
-- **🤖 Mensagens únicas** - IA gera variações automaticamente
-- **Seleção de estados** brasileiros e americanos
-- **Navegação contínua** com 4 fases de busca
-- **Export automático** para Excel/CSV
-- **Fluxo integrado** - captura ➜ mensagens automático
+[🚀 Início Rápido](#-início-rápido) • [📖 Documentação](#-documentação) • [⚙️ Configuração](#️-configuração) • [🎯 Funcionalidades](#-funcionalidades)
 
-### 🆕 Novo Sistema de Mensagens WhatsApp
-- **Baileys API** - conexão direta com WhatsApp
-- **OpenRouter AI** - variações únicas de mensagens
-- **Templates inteligentes** - nunca envia mensagem igual
-- **Controle de delay** - evita bloqueios
-- **Suporte Excel/CSV** - carrega listas de contatos
-- **Teste integrado** - valida antes de enviar em lote
+</div>
 
-## 🛠️ Instalação e Configuração
+---
 
-### 🚀 Instalação Completa (Recomendada)
+## 🌟 **Por que ASIMOV LeadCaptor?**
+
+> **Transforme leads em clientes automaticamente com o poder da inteligência artificial**
+
+**Sistema completo de captura e envio automatizado de leads com WhatsApp e IA**
+
+## ✨ **Características Principais**
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎯 **Gerador de Leads**
+- ✅ Captura automática do Google Maps
+- ✅ Interface cyberpunk futurista
+- ✅ Filtros avançados por nicho
+- ✅ Exportação para Excel/CSV
+- ✅ Validação automática de dados
+
+</td>
+<td width="50%">
+
+### 📱 **Disparador WhatsApp**
+- ✅ Envio em massa inteligente
+- ✅ Controle via WhatsApp
+- ✅ QR Code automático
+- ✅ Reconexão automática
+- ✅ Estatísticas em tempo real
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🤖 **IA Integrada**
+- ✅ Mensagens únicas para cada lead
+- ✅ Chat GPT integrado
+- ✅ Geração de imagens DALL-E
+- ✅ Templates inteligentes
+- ✅ Personalização automática
+
+</td>
+<td width="50%">
+
+### 📊 **Sistema Completo**
+- ✅ Interface híbrida
+- ✅ Relatórios detalhados
+- ✅ Launcher unificado
+- ✅ Documentação completa
+- ✅ Suporte multiplataforma
+
+</td>
+</tr>
+</table>
+
+## 🚀 **Início Rápido**
+
+<div align="center">
+
+### ⚡ **3 Passos para Começar**
+
+</div>
+
+<table>
+<tr>
+<td align="center" width="33%">
+
+### 1️⃣ **Executar**
 ```bash
-# 1. Sistema completo com WhatsApp
-python start_whatsapp_system.py
-```
-Este script irá:
-- ✅ Verificar Node.js (instale se necessário)
-- ✅ Instalar dependências Python e Node.js
-- ✅ Configurar arquivo .env
-- ✅ Configurar API OpenRouter
-- ✅ Executar testes do sistema
-- ✅ Iniciar interface cyberpunk
+# Windows
+start_asimov.bat
 
-### 📱 Apenas Sistema Cyberpunk
+# Linux/Mac  
+python app.py
+```
+
+</td>
+<td align="center" width="33%">
+
+### 2️⃣ **Escolher Modo**
+- 🚀 Sistema Completo
+- 🎯 Apenas Gerador  
+- 📱 Apenas WhatsApp
+
+</td>
+<td align="center" width="33%">
+
+### 3️⃣ **Automatizar**
+- Capturar leads
+- Conectar WhatsApp
+- Enviar mensagens
+
+</td>
+</tr>
+</table>
+
+---
+
+### 🎮 **Menu Interativo**
+
+<div align="center">
+
+```
+╔════════════════════════════════════════════════════════════════════╗
+║                    🔥 ASIMOV LeadCaptor                            ║
+║                        Menu Principal                              ║
+╠════════════════════════════════════════════════════════════════════╣
+║  [1] 🚀 Sistema Completo (Gerador + Disparador)                   ║
+║  [2] 🎯 Apenas Gerador de Leads                                   ║
+║  [3] 📱 Apenas Disparador WhatsApp                                ║
+║  [4] ⚙️  Configurações e Status                                    ║
+║  [5] 📚 Documentação e Ajuda                                      ║
+╚════════════════════════════════════════════════════════════════════╝
+```
+
+</div>
+
+## 📁 **Estrutura do Projeto**
+
+<div align="center">
+
+### 🏗️ **Arquitetura Modular**
+
+</div>
+
+```
+🔥 ASIMOVLeadCaptor/
+├── 🚀 app.py                    # Launcher principal
+├── 🪟 start_asimov.bat         # Script Windows
+├── 🖼️ logo.png                 # Logo oficial
+├── 📚 README.md                # Documentação principal
+│
+├── 🎯 gerador_leads/           # Sistema de captura
+│   ├── 🌐 cyberpunk_terminal.py      # Interface futurista
+│   ├── 🗺️ google_maps_integration.py # Engine de captura
+│   ├── 🚀 start_cyberpunk.py         # Launcher gerador
+│   ├── 📋 requirements.txt           # Dependências Python
+│   └── 📊 resultados/                # Leads capturados
+│
+└── 📱 disparador/              # Sistema WhatsApp
+    ├── 🤖 index.js                   # Bot principal
+    ├── 💬 sansekai.js                # Processador de mensagens
+    ├── 📨 lib/mass_sender.js         # Engine de envio
+    ├── 📦 package.json               # Dependências Node.js
+    ├── 🔑 key.json                   # Configurações API
+    ├── 📖 README.md                  # Guia WhatsApp
+    ├── ⚙️ CONFIGURAR_API.md          # Setup APIs
+    └── 📊 STATUS_SISTEMA.md          # Status atual
+```
+
+## 🎯 **Fluxo de Trabalho Completo**
+
+<div align="center">
+
+### 🔄 **Pipeline Automatizado de Leads**
+
+</div>
+
+<table>
+<tr>
+<td align="center" width="33%">
+
+### 1️⃣ **Captura**
+🎯 **Gerador de Leads**
+
+```
+🌐 Interface Cyberpunk
+   ↓
+🔍 Configurar Busca
+   ↓  
+🗺️ Google Maps Scraping
+   ↓
+📊 Validação de Dados
+   ↓
+💾 Export Excel/CSV
+```
+
+</td>
+<td align="center" width="33%">
+
+### 2️⃣ **Conexão**
+📱 **WhatsApp Bot**
+
+```
+📱 QR Code Automático
+   ↓
+🔗 Conexão WhatsApp
+   ↓
+🤖 Bot Ativo
+   ↓
+📋 Carregamento de Leads
+   ↓
+⚙️ Configuração Template
+```
+
+</td>
+<td align="center" width="33%">
+
+### 3️⃣ **Envio**
+🚀 **Automação IA**
+
+```
+🧠 IA Gera Mensagens
+   ↓
+📝 Personalização Única
+   ↓
+📨 Envio Inteligente
+   ↓
+📊 Estatísticas Tempo Real
+   ↓
+🎯 Conversão de Leads
+```
+
+</td>
+</tr>
+</table>
+
+---
+
+### 📈 **Monitoramento Avançado**
+
+<div align="center">
+
+| **Métrica** | **Descrição** | **Acesso** |
+|:---:|:---:|:---:|
+| 📊 **Taxa de Envio** | Mensagens enviadas/total | `/stats` |
+| 🎯 **Taxa de Entrega** | Entregas confirmadas | WhatsApp |
+| 💬 **Taxa de Resposta** | Respostas recebidas | Relatórios |
+| 🔄 **Status Sistema** | Saúde do sistema | `/config` |
+
+</div>
+
+## 📱 **Comandos WhatsApp**
+
+<div align="center">
+
+### 🎮 **Central de Comandos**
+
+</div>
+
+<table>
+<tr>
+<td width="50%">
+
+### 🤖 **IA & Automação**
+```
+/menu     # 📋 Menu principal completo
+/ai       # 🧠 Chat com ChatGPT  
+/img      # 🎨 Gerar imagens DALL-E
+/mass     # 📨 Sistema envio massa
+```
+
+### 📊 **Envio em Massa**
+```
+/loadcontacts  # 📄 Carregar Excel/CSV
+/sendmass      # 🚀 Enviar mensagens
+/testeenvio    # 🧪 Teste rápido
+/stats         # 📊 Estatísticas
+/stop          # ⏹️ Parar envio
+```
+
+</td>
+<td width="50%">
+
+### ⚙️ **Sistema & Config**
+```
+/config   # ⚙️ Ver configurações
+/help     # 📚 Menu de ajuda
+/status   # 🔍 Status sistema
+```
+
+### 💡 **Exemplo de Uso**
+```
+/testeenvio 11999887766 Olá! 
+Teste de mensagem automática.
+
+/ai Como melhorar conversão?
+
+/img Logo para empresa tech
+```
+
+</td>
+</tr>
+</table>
+
+## ⚙️ **Configuração**
+
+<div align="center">
+
+### 🔧 **Setup Automático**
+
+</div>
+
+<table>
+<tr>
+<td width="50%">
+
+### 1️⃣ **Dependências Automáticas**
+✅ **Instalação Automática**
+```
+🐍 Python:
+  • colorama, selenium
+  • pandas, openpyxl  
+  • webdriver-manager
+  • tqdm, pyfiglet
+
+📦 Node.js:
+  • @whiskeysockets/baileys
+  • openai, axios
+  • xlsx, chalk
+  • qrcode-terminal
+```
+
+</td>
+<td width="50%">
+
+### 2️⃣ **APIs (Opcional)**
+🔑 **Para Funcionalidades Completas**
+
+**🆓 OpenRouter (Gratuito)**
+```
+🌐 https://openrouter.ai
+📝 Criar conta gratuita
+🔑 Obter API Key
+⚙️ Configurar key.json
+```
+
+**💰 OpenAI (Pago)**
+```
+🌐 https://platform.openai.com  
+🔑 Obter API Key
+💳 Adicionar pagamento
+⚙️ Configurar key.json
+```
+
+</td>
+</tr>
+</table>
+
+---
+
+### 📋 **Arquivo de Configuração**
+
+<div align="center">
+
+**`disparador/key.json`**
+
+</div>
+
+```json
+{
+  "keyopenai": "sk-sua-chave-openai-aqui",
+  "openrouter_api_key": "sk-or-v1-sua-chave-openrouter-aqui",
+  "openrouter_base_url": "https://openrouter.ai/api/v1",
+  "default_model": "deepseek/deepseek-r1-0528:free",
+  "message_temperature": 0.8,
+  "max_message_tokens": 150,
+  "default_delay_seconds": 5,
+  "max_messages_per_hour": 60
+}
+```
+
+> 📖 **Guia Completo:** `disparador/CONFIGURAR_API.md`
+
+## 🛡️ **Boas Práticas**
+
+<div align="center">
+
+### 📏 **Limites & Segurança**
+
+</div>
+
+<table>
+<tr>
+<td width="50%">
+
+### ⏱️ **Limites Recomendados**
+```
+⏰ Delay mínimo: 5 segundos
+📊 Máximo diário: 100 mensagens  
+🕐 Horário: 8h às 20h
+🧪 Sempre teste primeiro
+```
+
+### 🎯 **Templates Eficazes**
+```
+📝 Use {name} para personalização
+📏 Máximo 2 linhas por mensagem
+🎯 Seja direto sobre o motivo
+❓ Termine com pergunta/convite
+```
+
+</td>
+<td width="50%">
+
+### 🔒 **Segurança**
+```
+🔐 Nunca compartilhe API Keys
+🔄 Faça backup das configurações
+📊 Monitor estatísticas sempre
+⚠️ Respeite limites WhatsApp
+```
+
+### 💡 **Dicas de Conversão**
+```
+🎨 Personalize cada mensagem
+⏰ Envie em horários adequados
+📈 Analise taxas de resposta
+🔄 Ajuste estratégia conforme dados
+```
+
+</td>
+</tr>
+</table>
+
+## 🔧 **Solução de Problemas**
+
+<div align="center">
+
+### 🛠️ **Troubleshooting Rápido**
+
+</div>
+
+<table>
+<tr>
+<td width="33%">
+
+### 🚫 **Sistema não inicia**
+```
+✅ Python 3.7+ instalado?
+✅ Node.js instalado?
+✅ Executar como admin?
+✅ Internet conectada?
+```
+
+**Solução:**
 ```bash
-# 2. Apenas captura de leads
-python start_cyberpunk.py
+# Verificar versões
+python --version
+node --version
+
+# Executar como admin
+start_asimov.bat
 ```
 
-### ⚙️ Instalação Manual
+</td>
+<td width="33%">
+
+### 📱 **WhatsApp não conecta**
+```
+❌ QR Code não aparece?
+❌ Sessão expirada?
+❌ Erro de conexão?
+```
+
+**Solução:**
 ```bash
-# Python dependencies
-pip install colorama pyfiglet selenium pandas webdriver-manager openpyxl
+# Limpar sessão
+rm -rf disparador/yusril
 
-# Node.js dependencies (para WhatsApp)
-cd whatsapp_sender
-npm install
+# Executar novamente
+python app.py
+
+# Escanear QR rapidamente
 ```
 
-## 🔑 Configuração Inicial
+</td>
+<td width="33%">
 
-### 1. API OpenRouter (para mensagens únicas)
-1. Acesse [OpenRouter.ai](https://openrouter.ai) 
-2. Crie conta gratuita
-3. Obtenha API key
-4. Configure no arquivo `whatsapp_sender/.env`
+### 🗺️ **Captura falha**
+```
+❌ Google Maps erro?
+❌ ChromeDriver desatualizado?
+❌ Muitos leads por vez?
+```
 
-### 2. WhatsApp Login
-1. Execute o sistema
-2. Escolha `[1] INICIAR WHATSAPP & QR CODE LOGIN`
-3. Escaneie QR Code com seu WhatsApp
-4. Aguarde confirmação de conexão
-
-### 3. Pronto para usar!
-Agora pode capturar leads e enviar mensagens automaticamente.
-
-## 🎮 Como Usar
-
-### 1. Inicialização
-Execute o launcher:
+**Solução:**
 ```bash
-python start_cyberpunk.py
+# Atualizar ChromeDriver
+pip install --upgrade webdriver-manager
+
+# Reduzir quantidade
+# Verificar internet
 ```
 
-### 2. Novo Menu Principal Integrado
-```
-╔═══════════════════════════════════════════════════════════════════════════╗
-║                           MENU PRINCIPAL                                 ║
-╠═══════════════════════════════════════════════════════════════════════════╣
-║ [1] ► INICIAR WHATSAPP & QR CODE LOGIN                                   ║
-║ [2] ► CAPTURAR LEADS DO GOOGLE MAPS                                      ║
-║ [3] ► DISPARAR MENSAGENS WHATSAPP                                        ║
-║ [4] ► STATUS DO SISTEMA                                                  ║
-║ [5] ► CONFIGURAÇÕES AVANÇADAS                                            ║
-║ [0] ► DESCONECTAR DO SISTEMA                                             ║
-╚═══════════════════════════════════════════════════════════════════════════╝
-```
+</td>
+</tr>
+</table>
 
-### 3. 🔄 Fluxo Completo Integrado
+## 🎯 **Funcionalidades**
 
-#### Passo 1: Conectar WhatsApp
-1. Escolha **[1] INICIAR WHATSAPP & QR CODE LOGIN**
-2. Escaneie QR Code com WhatsApp
-3. Aguarde confirmação de conexão
+<div align="center">
 
-#### Passo 2: Capturar Leads
-1. Escolha **[2] CAPTURAR LEADS DO GOOGLE MAPS**
-2. Selecione **país** (Brasil/Estados Unidos)
-3. Escolha o **estado** da lista
-4. Digite o **bairro/cidade**
-5. Digite a **palavra-chave** (ex: restaurante, dentista)
-6. Digite a **quantidade** de leads desejada
-7. Confirme a operação
-8. **NOVO**: Pergunta se deseja abrir sistema de mensagens
+### ✅ **Status de Implementação**
 
-#### Passo 3: Disparar Mensagens (Automático)
-1. Escolha **[3] DISPARAR MENSAGENS WHATSAPP** ou aceite após captura
-2. Sistema detecta último arquivo automaticamente
-3. Configure template de mensagem
-4. Defina delay entre envios (recomendado: 5-10s)
-5. Inicie o disparo!
+</div>
 
-### 4. 🎯 Exemplo Completo de Uso
-```
-1. Conectar WhatsApp → QR Code → ✅ Conectado
-2. Capturar leads:
-   - País: Brasil
-   - Estado: São Paulo  
-   - Bairro: Vila Madalena
-   - Palavra-chave: restaurante
-   - Quantidade: 100
-   - ✅ 100 leads capturados
+<table>
+<tr>
+<td width="50%">
 
-3. Disparar mensagens:
-   - Template: "Olá {name}! Vi vocês no Google Maps..."
-   - Delay: 7 segundos
-   - ✅ Mensagens enviadas com variações únicas!
-```
+### 🎯 **Gerador de Leads**
+- ✅ Captura automática Google Maps
+- ✅ Interface cyberpunk futurista  
+- ✅ Filtros avançados por nicho
+- ✅ Validação automática de dados
+- ✅ Export Excel/CSV otimizado
 
-## 🤖 Mensagens Inteligentes com IA
+### 📱 **Disparador WhatsApp**
+- ✅ Sistema WhatsApp completo
+- ✅ Controle via WhatsApp
+- ✅ QR Code automático
+- ✅ Reconexão automática
+- ✅ Envio em massa inteligente
 
-### Como Funciona a Variação Automática
+</td>
+<td width="50%">
 
-**Seu template:**
-```
-Olá, poderia falar com {name}? Encontrei o contato no Google Maps e gostaria de agendar uma conversa.
-```
+### 🤖 **IA & Automação**
+- ✅ Mensagens únicas com IA
+- ✅ Chat GPT integrado
+- ✅ Geração de imagens DALL-E
+- ✅ Templates inteligentes
+- ✅ Personalização automática
 
-**Variações geradas automaticamente:**
-1. "Oi! Estou tentando entrar em contato com o {name}. Vi vocês no Google e queria conversar sobre algo interessante."
-2. "Bom dia! Consegui o contato de vocês pelo Maps e gostaria de apresentar uma proposta. Podemos bater um papo?"
-3. "Olá {name}! Vi o perfil de vocês online e tenho algo que pode interessar. Quando poderíamos conversar?"
+### 🚀 **Sistema Completo**
+- ✅ Launcher unificado
+- ✅ Relatórios detalhados
+- ✅ Documentação completa
+- ✅ Suporte multiplataforma
+- ✅ Interface híbrida
 
-### 🎯 Vantagens das Mensagens Únicas
-- **Nunca repete** - cada mensagem é única
-- **Mantém o propósito** - objetivo sempre claro
-- **Natural e humana** - não parece robô
-- **Evita bloqueios** - WhatsApp não detecta spam
-- **Personalizada** - sempre usa o nome do contato
+</td>
+</tr>
+</table>
 
-### ⚙️ Configurações Inteligentes
-- **Temperatura**: 0.8 (criatividade balanceada)
-- **Modelo**: DeepSeek R1 (gratuito)
-- **Tokens**: 150 máximo por mensagem
-- **Delay**: 5-10 segundos entre envios
+---
 
-## 🎨 Elementos Visuais
+## 🏆 **Diferenciais ASIMOV**
 
-### Banner Principal
-```
-    ██████╗ ██████╗  ██████╗ ███████╗██████╗ ███████╗ ██████╗████████╗ ██████╗ 
-    ██╔══██╗██╔══██╗██╔═══██╗██╔════╝██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔═══██╗
-    ██████╔╝██████╔╝██║   ██║███████╗██████╔╝█████╗  ██║        ██║   ██║   ██║
-    ██╔═══╝ ██╔══██╗██║   ██║╚════██║██╔═══╝ ██╔══╝  ██║        ██║   ██║   ██║
-    ██║     ██║  ██║╚██████╔╝███████║██║     ███████╗╚██████╗   ██║   ╚██████╔╝
-    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚══════╝ ╚═════╝   ╚═╝    ╚═════╝ 
-```
+<div align="center">
 
-### Animações de Carregamento
-```
-[▓▓▓] Inicializando sistema neural [▓▓▓]
-[▒▒▒] Conectando ao Google Maps [▒▒▒]
-[░░░] Configurando parâmetros [░░░]
-```
+### 🌟 **Por que escolher ASIMOV LeadCaptor?**
 
-### Feedback de Status
-```
-[✓ SUCESSO] Operação concluída!
-[✗ ERRO] Falha na conexão
-[⚠ AVISO] Verificar parâmetros
-[ℹ INFO] Sistema online
-```
+</div>
 
-## 🔧 Arquitetura
+<table>
+<tr>
+<td align="center" width="20%">
 
-### Arquivos Principais
-- `cyberpunk_terminal.py` - Interface principal
-- `start_cyberpunk.py` - Launcher com auto-instalação
-- `google_maps_integration.py` - Backend de scraping
-- `ui.py` - Constantes e dados (estados brasileiros)
+### 🔥 **Único**
+Sistema híbrido
+Terminal + WhatsApp
 
-### Dependências
-- `colorama` - Cores no terminal
-- `pyfiglet` - Arte ASCII
-- `selenium` - Automação web
-- `pandas` - Manipulação de dados
-- `webdriver-manager` - Gerenciamento do ChromeDriver
-- `openpyxl` - Export para Excel
+</td>
+<td align="center" width="20%">
 
-## 🚀 Funcionalidades Avançadas
+### 🤖 **IA Nativa**
+Mensagens únicas
+automáticas
 
-### Sistema de Navegação em 4 Fases
-1. **Navegação Espiral** - Padrão sistemático
-2. **Navegação Estendida** - Com zoom dinâmico
-3. **Navegação Aleatória** - Movimentos inteligentes
-4. **Sistema de Reset** - Mudança automática de área
+</td>
+<td align="center" width="20%">
 
-### Capacidades de Captura
-- **Até 1000+ leads** por operação
-- **Navegação contínua** sem limites
-- **Detecção automática** de áreas vazias
-- **Reset inteligente** para novas regiões
+### 🎯 **Otimizado**
+Google Maps
+engine própria
 
-## 🎯 Vantagens da Interface Terminal
+</td>
+<td align="center" width="20%">
 
-### Performance
-- **Menor uso de memória** (sem GUI)
-- **Execução mais rápida** 
-- **Compatibilidade universal** (qualquer terminal)
+### 🚀 **Completo**
+Um comando
+para tudo
 
-### Experiência
-- **Visual cyberpunk único**
-- **Feedback em tempo real**
-- **Operação simplificada**
-- **Estilo futurístico**
+</td>
+<td align="center" width="20%">
 
-### Flexibilidade
-- **Execução remota** via SSH
-- **Automação fácil** via scripts
-- **Logs detalhados** no terminal
-- **Controle total** via teclado
+### 📚 **Documentado**
+Guias detalhados
+para tudo
 
-## 🔥 Comandos Rápidos
+</td>
+</tr>
+</table>
 
-### Iniciar Sistema
-```bash
-python start_cyberpunk.py
-```
+---
 
-### Captura Rápida (exemplo)
-1. Execute o sistema
-2. Digite `1` (Iniciar Captura)
-3. Selecione estado (ex: `25` para São Paulo)
-4. Digite bairro (ex: `Copacabana`)
-5. Digite palavra-chave (ex: `restaurante`)
-6. Digite quantidade (ex: `200`)
-7. Digite `s` para confirmar
+## 📞 **Suporte & Documentação**
 
-### Verificar Status
-1. Execute o sistema
-2. Digite `3` (Status do Sistema)
+<div align="center">
 
-## 🎨 Personalização
+### 📖 **Central de Ajuda**
 
-A interface pode ser facilmente personalizada modificando:
-- **Cores** no arquivo `cyberpunk_terminal.py`
-- **Arte ASCII** nos banners
-- **Animações** de carregamento
-- **Mensagens** de status
+</div>
 
-## 🚀 Próximas Funcionalidades
+| **Documento** | **Descrição** | **Localização** |
+|:---:|:---:|:---:|
+| 📱 **Guia WhatsApp** | Manual completo do bot | `disparador/README.md` |
+| ⚙️ **Setup APIs** | Configuração detalhada | `disparador/CONFIGURAR_API.md` |
+| 📊 **Status Sistema** | Estado atual | `disparador/STATUS_SISTEMA.md` |
+| 🚀 **Launcher** | Este arquivo | `README.md` |
 
-- [ ] Histórico de operações
-- [ ] Configurações avançadas
-- [ ] Export para múltiplos formatos
-- [ ] Agendamento de capturas
-- [ ] Dashboard de estatísticas
-- [ ] Integração com APIs
+### 🆘 **Em caso de problemas:**
+1. 📖 Consulte documentação específica
+2. 🔄 Reinicie o sistema  
+3. 📋 Verifique logs de erro
+4. ⚙️ Configure APIs se necessário
 
-## 🎯 Conclusão
+---
 
-A interface cyberpunk oferece uma experiência única e moderna para captura de leads, mantendo toda a funcionalidade do sistema original com um visual futurístico e performance otimizada.
+<div align="center">
 
-**Bem-vindo ao futuro da captura de leads! 🔥**
+## 🔥 **ASIMOV LeadCaptor**
+
+### **Sistema Completo de Automação de Leads com IA**
+
+<table>
+<tr>
+<td align="center" width="25%">
+
+### 🎯 **CAPTURE**
+Leads do Google Maps
+com precisão
+
+</td>
+<td align="center" width="25%">
+
+### 📱 **ENVIE**  
+Mensagens personalizadas
+via WhatsApp
+
+</td>
+<td align="center" width="25%">
+
+### 🤖 **AUTOMATIZE**
+Com inteligência
+artificial avançada
+
+</td>
+<td align="center" width="25%">
+
+### 📊 **MONITORE**
+Resultados em
+tempo real
+
+</td>
+</tr>
+</table>
+
+---
+
+### 🚀 **Transforme leads em clientes automaticamente!**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com)
+[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://python.org)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
+[![AI](https://img.shields.io/badge/AI-Powered-purple.svg)](https://openrouter.ai)
+
+**Desenvolvido com ❤️ pela equipe ASIMOV**
+
+</div>

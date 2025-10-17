@@ -38,7 +38,6 @@ class Business:
     facebook: str = "Facebook não disponível"
     descricao: str = "Descrição não disponível"
     preco: str = "Preço não disponível"
-    preco: str = "Preço não disponível"
     descricao: str = "Descrição não disponível"
     fotos: list = field(default_factory=list)
 
@@ -49,7 +48,20 @@ class BusinessList:
 
     def dataframe(self):
         """Transforma a lista de negócios em um DataFrame do pandas."""
-        return pd.json_normalize((asdict(business) for business in self.business_list), sep="_")
+        df = pd.json_normalize((asdict(business) for business in self.business_list), sep="_")
+        
+        # Colunas que devem ser removidas dos arquivos de resultado
+        colunas_para_remover = [
+            'horario', 'latitude', 'longitude', 'email', 'whatsapp', 
+            'instagram', 'facebook', 'descricao', 'preco', 'fotos'
+        ]
+        
+        # Remove as colunas especificadas se existirem no DataFrame
+        colunas_existentes_para_remover = [col for col in colunas_para_remover if col in df.columns]
+        if colunas_existentes_para_remover:
+            df = df.drop(columns=colunas_existentes_para_remover)
+        
+        return df
 
     def save_to_excel(self, filename, save_dir):
         """Salva o DataFrame em um arquivo Excel."""
@@ -445,8 +457,8 @@ def main_query(search_for, total, location, save_dir, file_format, headless_mode
             elementos_para_processar,
             desc="🔍 Extraindo leads",
             unit="lead",
-            initial=i,
-            total=total,
+            initial=0,  # Sempre começar do 0 para a barra atual
+            total=len(elementos_para_processar),  # Total de elementos a processar nesta iteração
             bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} leads [{elapsed}<{remaining}]"
         )
 
@@ -607,7 +619,7 @@ def main_query(search_for, total, location, save_dir, file_format, headless_mode
                     progress_bar.close()
                     if callback:
                         callback(f"[SUCESSO] Meta atingida! {i} leads capturados com sucesso!")
-                    break  # Sair do loop, mas não retornar ainda (precisa salvar arquivo)
+                    break  # Sair do loop de processamento
 
             except StaleElementReferenceException:
                 error_msg = f"[AVISO] Elemento {i} está desatualizado, tentando próximo registro..."
@@ -619,6 +631,11 @@ def main_query(search_for, total, location, save_dir, file_format, headless_mode
 
         # ✅ SISTEMA DE NAVEGAÇÃO CONTÍNUA EM 4 FASES
         # Só navegar se ainda não atingiu a meta
+        if i >= total:
+            if callback:
+                callback(f"[FINALIZAÇÃO] Meta de {total} leads atingida. Finalizando operação...")
+            break  # Sair do loop principal
+        
         if i < total:
             initial_count = i
 
@@ -741,14 +758,11 @@ def main_query(search_for, total, location, save_dir, file_format, headless_mode
 
     # ✅ ESTATÍSTICAS FINAIS DA NAVEGAÇÃO CONTÍNUA
     if callback:
-        callback(f"[FINALIZAÇÃO] Extração concluída! Total de empresas encontradas: {i}")
         if i >= total:
-            callback(f"[SUCESSO] Meta atingida! {i} empresas extraídas com sucesso.")
+            callback(f"[FINALIZAÇÃO] Extração concluída com sucesso! {i} empresas encontradas.")
         else:
-            callback(f"[AVISO] Meta não atingida. Encontradas {i} de {total} empresas solicitadas.")
-        callback(f"[ESTATÍSTICAS] Tentativas de navegação: {navigation_attempts}")
-        callback(f"[ESTATÍSTICAS] Tentativas de reset: {reset_attempts}")
-        callback(f"[ESTATÍSTICAS] Áreas sem resultados: {areas_without_results}")
+            callback(f"[FINALIZAÇÃO] Extração concluída. Encontradas {i} de {total} empresas solicitadas.")
+            callback(f"[AVISO] Meta não atingida completamente.")
 
     # Finaliza a extração e salva automaticamente os dados
     updated_string = search_for.replace(" ", "_")

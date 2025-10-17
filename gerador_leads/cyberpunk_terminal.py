@@ -27,8 +27,6 @@ class CyberpunkTerminal:
     def __init__(self):
         self.running = True
         self.current_operation = None
-        self.whatsapp_process = None
-        self.whatsapp_connected = False
         self.last_search_file = None
         
     def clear_screen(self):
@@ -66,9 +64,8 @@ class CyberpunkTerminal:
         print(f"{Fore.GREEN}[SISTEMA ONLINE]{Style.RESET_ALL} {Fore.CYAN}Neural Network Activated{Style.RESET_ALL}")
         print(f"{Fore.GREEN}[CONEXÃO]{Style.RESET_ALL} {Fore.CYAN}Matrix Interface Ready{Style.RESET_ALL}")
         
-        # Status do WhatsApp
-        whatsapp_status = f"{Fore.GREEN}[CONECTADO]{Style.RESET_ALL}" if self.whatsapp_connected else f"{Fore.RED}[DESCONECTADO]{Style.RESET_ALL}"
-        print(f"{Fore.GREEN}[WHATSAPP]{Style.RESET_ALL} {whatsapp_status}")
+        # Sistema focado apenas em captura de leads
+        print(f"{Fore.GREEN}[SISTEMA]{Style.RESET_ALL} {Fore.GREEN}[ATIVO]{Style.RESET_ALL} - Captura de Leads Google Maps")
         
         print(f"{Fore.GREEN}[TIMESTAMP]{Style.RESET_ALL} {Fore.YELLOW}{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}{Style.RESET_ALL}")
         print(f"{Fore.GREEN}{'═' * 80}{Style.RESET_ALL}")
@@ -78,11 +75,9 @@ class CyberpunkTerminal:
         print(f"\n{Fore.CYAN}╔═══════════════════════════════════════════════════════════════════════════╗{Style.RESET_ALL}")
         print(f"{Fore.CYAN}║                           MENU PRINCIPAL                                 ║{Style.RESET_ALL}")
         print(f"{Fore.CYAN}╠═══════════════════════════════════════════════════════════════════════════╣{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.GREEN}[1]{Style.RESET_ALL} {Fore.YELLOW}► INICIAR WHATSAPP & QR CODE LOGIN{Style.RESET_ALL}                          {Fore.CYAN}║{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.GREEN}[2]{Style.RESET_ALL} {Fore.YELLOW}► CAPTURAR LEADS DO GOOGLE MAPS{Style.RESET_ALL}                            {Fore.CYAN}║{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.GREEN}[3]{Style.RESET_ALL} {Fore.YELLOW}► DISPARAR MENSAGENS WHATSAPP{Style.RESET_ALL}                              {Fore.CYAN}║{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.GREEN}[4]{Style.RESET_ALL} {Fore.YELLOW}► STATUS DO SISTEMA{Style.RESET_ALL}                                        {Fore.CYAN}║{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.GREEN}[5]{Style.RESET_ALL} {Fore.YELLOW}► CONFIGURAÇÕES AVANÇADAS{Style.RESET_ALL}                                  {Fore.CYAN}║{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.GREEN}[1]{Style.RESET_ALL} {Fore.YELLOW}► CAPTURAR LEADS DO GOOGLE MAPS{Style.RESET_ALL}                            {Fore.CYAN}║{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.GREEN}[2]{Style.RESET_ALL} {Fore.YELLOW}► STATUS DO SISTEMA{Style.RESET_ALL}                                         {Fore.CYAN}║{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.GREEN}[3]{Style.RESET_ALL} {Fore.YELLOW}► CONFIGURAÇÕES AVANÇADAS{Style.RESET_ALL}                                  {Fore.CYAN}║{Style.RESET_ALL}")
         print(f"{Fore.CYAN}║{Style.RESET_ALL} {Fore.RED}[0]{Style.RESET_ALL} {Fore.RED}► DESCONECTAR DO SISTEMA{Style.RESET_ALL}                                   {Fore.CYAN}║{Style.RESET_ALL}")
         print(f"{Fore.CYAN}╚═══════════════════════════════════════════════════════════════════════════╝{Style.RESET_ALL}")
     
@@ -382,8 +377,35 @@ class CyberpunkTerminal:
         
         # Callback para atualizações de status
         def status_callback(message):
-            # Filtrar mensagens para exibir apenas as importantes
-            if any(keyword in message for keyword in ["[INFO]", "[SUCESSO]", "[ERRO]", "[NAVEGAÇÃO"]):
+            # Filtrar mensagens para exibir apenas as importantes e evitar duplicatas
+            important_keywords = ["[INFO]", "[ERRO]", "[NAVEGAÇÃO"]
+            progress_keywords = ["[PROGRESSO]"]
+            success_keywords = ["[SUCESSO]"]
+            
+            # Evitar mensagens duplicadas de sucesso
+            if any(keyword in message for keyword in success_keywords):
+                if "Meta atingida!" in message and "leads capturados com sucesso!" in message:
+                    return  # Pular esta mensagem duplicada
+            
+            # Filtrar mensagens de progresso para mostrar apenas marcos importantes
+            if any(keyword in message for keyword in progress_keywords):
+                # Mostrar apenas a cada 25% do progresso ou no final
+                if "Lead" in message:
+                    try:
+                        # Extrair números do formato "Lead X/Y extraído"
+                        parts = message.split("Lead ")[1].split("/")
+                        current = int(parts[0])
+                        total = int(parts[1].split(" ")[0])
+                        
+                        # Mostrar apenas em marcos de 25%, 50%, 75% e 100%
+                        percentage = (current / total) * 100
+                        if percentage not in [25, 50, 75, 100] and current != 1:
+                            return  # Pular esta mensagem de progresso
+                    except:
+                        return  # Se não conseguir parsear, pular
+            
+            # Exibir mensagens importantes
+            if any(keyword in message for keyword in important_keywords + success_keywords + progress_keywords):
                 timestamp = datetime.now().strftime("%H:%M:%S")
                 print(f"{Fore.GREEN}[{timestamp}]{Style.RESET_ALL} {message}")
         
@@ -401,16 +423,12 @@ class CyberpunkTerminal:
             
             if result:
                 # Salvar referência do último arquivo
-                filename = f"maps_data_{tipo_negocio}_{local}_{estado}.xlsx"
+                filename = f"maps_data_{palavra_chave.replace(' ', '_')}_{local}_{estado}.xlsx"
                 self.last_search_file = os.path.join(save_dir, filename)
                 
                 self.print_success(f"Operação concluída! {len(result)} leads capturados.")
                 self.print_info(f"Arquivo salvo em: {self.last_search_file}")
-                
-                # Perguntar se deseja iniciar o sistema de mensagens
-                start_messages = self.get_user_input("Deseja abrir o sistema de mensagens agora? (s/n): ")
-                if start_messages.lower().startswith('s'):
-                    self.show_whatsapp_menu()
+                self.print_info("Para enviar mensagens, use o sistema separado na pasta whatsapp_sender/")
             else:
                 self.print_warning("Nenhum lead foi encontrado.")
                 
@@ -419,137 +437,9 @@ class CyberpunkTerminal:
         
         input(f"\n{Fore.YELLOW}Pressione ENTER para continuar...{Style.RESET_ALL}")
     
-    def initialize_whatsapp(self):
-        """Inicializa o sistema WhatsApp com Baileys"""
-        self.print_info("Inicializando sistema WhatsApp...")
-        
-        try:
-            # Verificar se o Node.js está instalado
-            result = subprocess.run(['node', '--version'], capture_output=True, text=True, shell=True)
-            if result.returncode != 0:
-                self.print_error("Node.js não encontrado! Instale o Node.js para continuar.")
-                return False
-            
-            node_version = result.stdout.strip()
-            self.print_success(f"Node.js detectado: {node_version}")
-            
-            # Navegar para o diretório do WhatsApp sender
-            whatsapp_dir = os.path.join(os.getcwd(), 'whatsapp_sender')
-            
-            if not os.path.exists(whatsapp_dir):
-                self.print_error("Diretório whatsapp_sender não encontrado!")
-                return False
-            
-            self.print_info("Iniciando Baileys WhatsApp...")
-            self.print_warning("IMPORTANTE: Escaneie o QR Code com seu WhatsApp quando aparecer!")
-            
-            # Iniciar processo do WhatsApp em segundo plano
-            self.whatsapp_process = subprocess.Popen(
-                ['node', 'whatsapp_sender.js'],
-                cwd=whatsapp_dir,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                shell=True
-            )
-            
-            # Aguardar alguns segundos para o processo inicializar
-            time.sleep(3)
-            
-            # Verificar se o processo está rodando
-            if self.whatsapp_process.poll() is None:
-                self.whatsapp_connected = True
-                self.print_success("WhatsApp inicializado! Processo rodando em segundo plano.")
-                self.print_info("Para ver o QR Code, verifique o terminal do Node.js")
-                return True
-            else:
-                self.print_error("Falha ao inicializar WhatsApp")
-                return False
-                
-        except Exception as e:
-            self.print_error(f"Erro ao inicializar WhatsApp: {str(e)}")
-            return False
     
-    def show_whatsapp_menu(self):
-        """Exibe menu do sistema de mensagens WhatsApp"""
-        if not self.whatsapp_connected:
-            self.print_warning("WhatsApp não está conectado!")
-            initialize = self.get_user_input("Deseja inicializar o WhatsApp? (s/n): ")
-            if initialize.lower().startswith('s'):
-                if not self.initialize_whatsapp():
-                    return
-            else:
-                return
-        
-        print(f"\n{Fore.CYAN}╔═══════════════════════════════════════════════════════════════════════════╗{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}║                    SISTEMA DE MENSAGENS WHATSAPP                         ║{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}╚═══════════════════════════════════════════════════════════════════════════╝{Style.RESET_ALL}")
-        
-        if self.last_search_file:
-            self.print_info(f"Último arquivo de busca: {self.last_search_file}")
-            
-        print(f"\n{Fore.YELLOW}Opções disponíveis:{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}[1]{Style.RESET_ALL} {Fore.YELLOW}► Usar arquivo da última busca{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}[2]{Style.RESET_ALL} {Fore.YELLOW}► Carregar outro arquivo Excel/CSV{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}[3]{Style.RESET_ALL} {Fore.YELLOW}► Testar envio para um número{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}[0]{Style.RESET_ALL} {Fore.RED}► Voltar ao menu principal{Style.RESET_ALL}")
-        
-        choice = self.get_user_input("Escolha uma opção", "string")
-        
-        if choice == "1" and self.last_search_file:
-            self.start_whatsapp_sender_with_file(self.last_search_file)
-        elif choice == "2":
-            file_path = self.get_user_input("Digite o caminho do arquivo Excel/CSV: ")
-            if os.path.exists(file_path):
-                self.start_whatsapp_sender_with_file(file_path)
-            else:
-                self.print_error("Arquivo não encontrado!")
-        elif choice == "3":
-            self.start_whatsapp_sender_test()
-        elif choice == "0":
-            return
-        else:
-            self.print_error("Opção inválida!")
-            
-        input(f"\n{Fore.YELLOW}Pressione ENTER para continuar...{Style.RESET_ALL}")
     
-    def start_whatsapp_sender_with_file(self, file_path):
-        """Inicia o sender do WhatsApp com arquivo de contatos"""
-        self.print_info(f"Abrindo sistema de envio com arquivo: {file_path}")
-        
-        try:
-            whatsapp_dir = os.path.join(os.getcwd(), 'whatsapp_sender')
-            
-            # Abrir em novo terminal
-            if os.name == 'nt':  # Windows
-                subprocess.Popen(f'start cmd /k "cd /d {whatsapp_dir} && node whatsapp_sender.js"', shell=True)
-            else:  # Linux/Mac
-                subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', f'cd {whatsapp_dir} && node whatsapp_sender.js'])
-            
-            self.print_success("Sistema de mensagens aberto em novo terminal!")
-            self.print_info("Use a opção [1] para carregar o arquivo e [2] para enviar mensagens")
-            
-        except Exception as e:
-            self.print_error(f"Erro ao abrir sistema de mensagens: {str(e)}")
     
-    def start_whatsapp_sender_test(self):
-        """Inicia teste do WhatsApp sender"""
-        self.print_info("Abrindo sistema de teste de mensagens...")
-        
-        try:
-            whatsapp_dir = os.path.join(os.getcwd(), 'whatsapp_sender')
-            
-            # Abrir em novo terminal
-            if os.name == 'nt':  # Windows
-                subprocess.Popen(f'start cmd /k "cd /d {whatsapp_dir} && node whatsapp_sender.js"', shell=True)
-            else:  # Linux/Mac
-                subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', f'cd {whatsapp_dir} && node whatsapp_sender.js'])
-            
-            self.print_success("Sistema de teste aberto em novo terminal!")
-            self.print_info("Use a opção [3] para testar o envio para um número")
-            
-        except Exception as e:
-            self.print_error(f"Erro ao abrir sistema de teste: {str(e)}")
     
     def show_system_status(self):
         """Exibe status do sistema"""
@@ -582,30 +472,14 @@ class CyberpunkTerminal:
             choice = self.get_user_input("Selecione uma opção", "choice")
             
             if choice == "1":
-                # Inicializar WhatsApp first
-                if not self.whatsapp_connected:
-                    self.initialize_whatsapp()
-                    input(f"\n{Fore.YELLOW}Pressione ENTER para continuar...{Style.RESET_ALL}")
-                else:
-                    self.print_success("WhatsApp já está conectado!")
-                    input(f"\n{Fore.YELLOW}Pressione ENTER para continuar...{Style.RESET_ALL}")
-            elif choice == "2":
                 self.capture_leads_interface()
-            elif choice == "3":
-                self.show_whatsapp_menu()
-            elif choice == "4":
+            elif choice == "2":
                 self.show_system_status()
-            elif choice == "5":
+            elif choice == "3":
                 self.print_info("Configurações avançadas em desenvolvimento...")
                 input(f"\n{Fore.YELLOW}Pressione ENTER para continuar...{Style.RESET_ALL}")
             elif choice == "0":
                 self.print_warning("Desconectando do sistema...")
-                if self.whatsapp_process:
-                    try:
-                        self.whatsapp_process.terminate()
-                        self.print_info("Processo WhatsApp finalizado.")
-                    except:
-                        pass
                 self.print_loading_animation("Finalizando processos", 2)
                 self.print_success("Sistema desconectado com segurança!")
                 self.running = False
