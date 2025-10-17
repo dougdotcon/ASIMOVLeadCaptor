@@ -1,0 +1,55 @@
+{
+  "name": "ASIMOV-WhatsApp-LeadCaptor",
+  "version": "3.0.0",
+  "description": "Sistema completo WhatsApp Bot + LeadCaptor com IA usando Baileys Multi Device",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "whatsapp-bot",
+    "whatsapp-baileys",
+    "baileys-md",
+    "lead-captor",
+    "mass-messaging",
+    "openai",
+    "asimov",
+    "automation"
+  ],
+  "author": "ASIMOV LeadCaptor",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/boom": "^10.0.0",
+    "@whiskeysockets/baileys": "^6.7.16",
+    "awesome-phonenumber": "^2.64.0",
+    "axios": "^1.3.4",
+    "chalk": "^4.1.2",
+    "crypto": "^1.0.1",
+    "figlet": "^1.5.2",
+    "fs": "0.0.1-security",
+    "fs-extra": "^11.2.0",
+    "lodash": "^4.17.21",
+    "moment-timezone": "^0.5.46",
+    "openai": "^4.20.1",
+    "pino": "^7.0.5",
+    "qrcode-terminal": "^0.12.0",
+    "readline": "^1.3.0",
+    "util": "^0.12.4",
+    "xlsx": "^0.18.5"
+  },
+  "directories": {
+    "lib": "lib",
+    "src": "src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sansekai/Wa-OpenAI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sansekai/Wa-OpenAI/issues"
+  },
+  "homepage": "https://github.com/Sansekai/Wa-OpenAI#readme"
+}

@@ -1,0 +1,11 @@
+{
+  "keyopenai": "ISI_APIKEY_OPENAI_DISINI",
+  "openrouter_api_key": "ISI_OPENROUTER_API_KEY_AQUI",
+  "openrouter_base_url": "https://openrouter.ai/api/v1",
+  "default_model": "deepseek/deepseek-r1-0528:free",
+  "message_temperature": 0.8,
+  "max_message_tokens": 150,
+  "default_delay_seconds": 5,
+  "max_messages_per_hour": 60,
+  "donasi": "🔥 ASIMOV LeadCaptor - Sistema completo de automação WhatsApp"
+}
